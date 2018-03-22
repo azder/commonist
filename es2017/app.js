@@ -1,26 +1,24 @@
 // application constructs
 
-const iife = (
-    fn => ('function' === typeof fn) ? fn() : fn
-);
-
-
 const argiife = (
-    ([...args, fn]) => ('function' === typeof fn) ? fn(...args) : [...args, fn]
+    ([...argv], fn) => ('function' === typeof fn) ? fn(...argv) : [...argv, fn]
 );
 
+const iife = (
+    fn => argiife([], fn)
+);
 
 const main = (
     fn => argiife(process.argv, fn)
 );
 
 const amain = (
-    async (fn) => await main(fn)
+    (async (fn) => await main(fn).catch(console.error.bind(console)))
 );
 
 module.exports = Object.freeze({
-    iife,
     argiife,
+    iife,
     main,
     amain,
 });
