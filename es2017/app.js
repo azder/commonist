@@ -13,7 +13,10 @@ const main = (
 );
 
 const amain = (
-    async (fn) => await argiife(process.argv, fn)//.catch(console.error.bind(console)))
+    async (fn) => await argiife(process.argv, fn).catch(error => {
+        console.error(error);
+        process.exit(1);
+    })
 );
 
 module.exports = Object.freeze({
