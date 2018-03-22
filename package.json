@@ -1,6 +1,6 @@
 {
     "name": "@azhder/commonist",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "commonly used stuff",
     "main": "index.js",
     "scripts": {

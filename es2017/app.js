@@ -13,8 +13,8 @@ const main = (
 );
 
 const amain = (
-    (async (fn) => await main(fn).catch(console.error.bind(console)))
-);
+    (async (fn) => await main(fn)//.catch(console.error.bind(console)))
+    );
 
 module.exports = Object.freeze({
     argiife,
