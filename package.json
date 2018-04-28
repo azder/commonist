@@ -1,25 +1,33 @@
 {
     "name": "@azhder/commonist",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "description": "commonly used stuff",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "./node_modules/.bin/jest",
+        "jest": "./node_modules/.bin/jest --watch",
+        "jest-coverage": "./node_modules/.bin/jest --coverage",
+        "jest-coverage-on": "./node_modules/.bin/nodemon --exec npm run jest-coverage",
+        "eslint": "./node_modules/.bin/eslint es2017",
+        "eslint-fix": "./node_modules/.bin/eslint --fix es2017",
+        "eslint-fix-on": "./node_modules/.bin/nodemon --exec npm run eslint-fix"
     },
     "author": "azder <azhder@gmail.com>",
     "license": "MIT",
-
     "repository": {
         "type": "git",
         "url": "git+https://github.com/azder/commonist.git"
     },
-
     "bugs": {
         "url": "https://github.com/azder/commonist/issues"
     },
     "homepage": "https://github.com/azder/commonist#readme",
-    "dependencies": {},
+    "dependencies": {
+        "nodemon": "^1.17.3"
+    },
     "devDependencies": {
+        "@azhder/eslint-config-azder": "0.0.3",
+        "eslint": "^4.19.1",
+        "jest": "^22.4.3"
     }
-
 }

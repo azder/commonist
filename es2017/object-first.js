@@ -6,5 +6,5 @@ const set = (
 );
 
 module.exports = Object.freeze({
-    set
+    set,
 });

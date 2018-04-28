@@ -13,10 +13,14 @@ const main = (
 );
 
 const amain = (
-    async (fn) => await argiife(process.argv, fn).catch(error => {
-        console.error(error);
-        process.exit(1);
-    })
+
+    async (fn) => (
+        await argiife(process.argv, fn).catch(error => {
+            console.error(error); // eslint-disable-line no-console
+            process.exit(1);
+        })
+    )
+
 );
 
 module.exports = Object.freeze({

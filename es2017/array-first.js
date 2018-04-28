@@ -5,6 +5,11 @@ const push = (
     }
 );
 
+const ipush = (
+    (array, item) => [...array, item]
+);
+
 module.exports = Object.freeze({
-    push
+    push,
+    ipush,
 });
