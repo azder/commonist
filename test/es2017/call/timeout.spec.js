@@ -22,35 +22,66 @@ describe('es2017/call/timeout', () => {
     });
 
     it('is a function', () => {
+
         expect(typeof timeout).toEqual('function');
+
     });
 
     it('calls setTimeout with given `wait` and callback function', () => {
+
         timeout(wait, fn);
+
         expect(setTimeout).toHaveBeenCalledTimes(1);
         expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), wait);
+
     });
 
     it('executes the given `fn` after the given `wait` miliseconds', () => {
+
         timeout(wait, fn);
+
         expect(fn).not.toBeCalled();
+
         jest.runAllTimers();
+
         expect(fn).toBeCalled();
         expect(fn).toBeCalledWith(/* nothing */);
+
     });
 
     it('executes the given `fn` with the given args', () => {
+
         timeout(wait, fn, 1, 2, 3, 4);
+
         expect(fn).not.toBeCalled();
+
         jest.runAllTimers();
+
         expect(fn).toBeCalled();
         expect(fn).toBeCalledWith(1, 2, 3, 4);
+
     });
 
-    describe('returns the given `fn`', () => {
+    it('executes the given `fn` with the given `this`', () => {
+
+        const obj = {a: 1, b: 2};
+        timeout.call(obj, wait, fn, 1, 2, 3, 4);
+
+        expect(fn).not.toBeCalled();
+
+        jest.runAllTimers();
+
+        expect(fn).toBeCalled();
+        expect(fn.mock.instances[0]).toBe(obj);
+
+    });
+
+    describe('returns a timeouted function', () => {
 
         it('just after being called', () => {
-            expect(timeout(wait, fn)).toBe(fn);
+
+            expect(timeout(wait, fn)).toEqual(expect.any(Function));
+
         });
 
         it('which gets filled with timeout id', () => {
