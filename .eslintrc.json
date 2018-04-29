@@ -10,7 +10,8 @@
     },
     "extends": "@azhder/azder",
     "globals": {
-        "Promise": false
+        "Promise": false,
+        "Symbol": false
     },
     "rules": {
     }
