@@ -5,6 +5,7 @@ const die = (
     }
 );
 
+
 module.exports = Object.freeze({
     die,
 });

@@ -1,22 +1,9 @@
+const THIS = Symbol('THIS');
 const RESULT = Symbol('RESULT');
+
 const THROTTLE = Symbol('THROTTLE');
 const TIMEOUT = Symbol('TIMEOUT');
 const DEBOUNCE = Symbol('DEBOUNCE');
-
-const THIS = Symbol('THIS');
-
-const timeout = (function timeout(wait, fn, ...args) {
-
-    const timeouted = function timeouted() {
-        timeouted[RESULT] = fn.apply(timeouted[THIS], args);
-    };
-
-    timeouted[THIS] = this;
-    timeouted[TIMEOUT] = setTimeout(timeouted, wait);
-
-    return timeouted;
-
-});
 
 
 const throttle = (function throttle(wait, fn) {
@@ -34,10 +21,24 @@ const throttle = (function throttle(wait, fn) {
 
     });
 
-    throttled[THIS] = this;
+    throttled[THIS] = this; // eslint-disable-line no-invalid-this
     throttled[THROTTLE] = Date.now();
 
     return throttled;
+
+});
+
+
+const timeout = (function timeout(wait, fn, ...args) {
+
+    const timeouted = function timeouted() {
+        timeouted[RESULT] = fn.apply(timeouted[THIS], args);
+    };
+
+    timeouted[THIS] = this; // eslint-disable-line no-invalid-this
+    timeouted[TIMEOUT] = setTimeout(timeouted, wait);
+
+    return timeouted;
 
 });
 
@@ -64,7 +65,7 @@ const debounce = (function debounce(immediate, wait, fn) {
 
     };
 
-    debounced[THIS] = this;
+    debounced[THIS] = this; // eslint-disable-line no-invalid-this
     return debounced;
 
 });
@@ -72,6 +73,7 @@ const debounce = (function debounce(immediate, wait, fn) {
 
 module.exports = Object.freeze({
 
+    THIS,
     RESULT,
 
     THROTTLE,

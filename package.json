@@ -1,6 +1,6 @@
 {
     "name": "@azhder/commonist",
-    "version": "0.0.11",
+    "version": "0.0.12",
     "description": "commonly used stuff",
     "main": "index.js",
     "scripts": {
@@ -26,7 +26,7 @@
         "nodemon": "^1.17.3"
     },
     "devDependencies": {
-        "@azhder/eslint-config-azder": "0.0.3",
+        "@azhder/eslint-config-azder": "0.0.5",
         "eslint": "^4.19.1",
         "jest": "^22.4.3"
     }
