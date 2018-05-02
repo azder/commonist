@@ -1,5 +1,12 @@
-const {keys: okeys, values: ovals, entries: oents, freeze} = Object;
+const {
+    keys:    okeys,
+    values:  ovals,
+    entries: oents, freeze,
+    assign,
+} = Object;
+
 const {isArray: isarr} = Array;
+
 const {
     isNumber:      isnum,
     isInteger:     isint,
@@ -12,6 +19,7 @@ const {
 module.exports = freeze({
 
     freeze,
+    assign,
 
     okeys,
     ovals,

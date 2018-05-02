@@ -7,6 +7,10 @@ describe('es2017/static-methods', () => {
         expect(smets.freeze).toBe(Object.freeze);
     });
 
+    it('`assign` is `Object.assign`', () => {
+        expect(smets.assign).toBe(Object.assign);
+    });
+
     it('`okeys` is `Object.keys`', () => {
         expect(smets.okeys).toBe(Object.keys);
     });
