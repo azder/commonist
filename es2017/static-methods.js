@@ -8,12 +8,33 @@ const {
 const {isArray: isarr} = Array;
 
 const {
-    isNumber:      isnum,
-    isInteger:     isint,
-    isFinite:      isfin,
+
+    isNumber: isnum,
+    isInteger: isint,
+    isFinite: isfin,
     isSafeInteger: issaf,
-    isNaN:         isnan,
+    isNaN: isnan,
+
+    parseInt: pint,
+
 } = Number;
+
+
+const parseHex = (
+    string => pint(string, 16) // eslint-disable-line no-magic-numbers
+);
+
+const parseDec = (
+    string => pint(string, 10) // eslint-disable-line no-magic-numbers
+);
+
+const parseOct = (
+    string => pint(string, 8) // eslint-disable-line no-magic-numbers
+);
+
+const parseBin = (
+    string => pint(string, 2) // eslint-disable-line no-magic-numbers
+);
 
 
 module.exports = freeze({
@@ -31,5 +52,12 @@ module.exports = freeze({
     isfin,
     issaf,
     isnan,
+
+    pint,
+
+    parseHex,
+    parseDec,
+    parseOct,
+    parseBin,
 
 });

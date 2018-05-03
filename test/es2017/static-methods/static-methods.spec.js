@@ -47,6 +47,10 @@ describe('es2017/static-methods', () => {
         expect(smets.isnan).toBe(Number.isNaN);
     });
 
+    it('`pint` is `Number.parseInt`', () => {
+        expect(smets.pint).toBe(Number.parseInt);
+    });
+
 });
 
 
