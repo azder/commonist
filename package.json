@@ -22,12 +22,11 @@
         "url": "https://github.com/azder/commonist/issues"
     },
     "homepage": "https://github.com/azder/commonist#readme",
-    "dependencies": {
-        "nodemon": "^1.17.3"
-    },
+    "dependencies": {},
     "devDependencies": {
         "@azhder/eslint-config-azder": "0.0.5",
         "eslint": "^4.19.1",
-        "jest": "^22.4.3"
+        "jest": "^22.4.3",
+        "nodemon": "^1.17.3"
     }
 }
