@@ -1,6 +1,6 @@
-const {set} = require('../../../es2017/object-first');
+const {put} = require('../../../../es2017/object/last');
 
-describe('es2017/object-first/set', () => {
+describe('es2017/object/last/put', () => {
 
     let object;
     let key;
@@ -19,12 +19,16 @@ describe('es2017/object-first/set', () => {
     });
 
     it('is a function', () => {
-        expect(typeof set).toEqual('function');
+        expect(typeof put).toEqual('function');
     });
 
     it('attaches a value to an object at specific key', () => {
-        set(object, key, value);
+        put(value, key, object);
         expect(object).toEqual({a: 1, b: 2, c: 3});
+    });
+
+    it('returns the same object', () => {
+        expect(put(value, key, object)).toBe(object);
     });
 
 });
