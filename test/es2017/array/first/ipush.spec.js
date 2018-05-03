@@ -1,6 +1,6 @@
-const {ipush} = require('../../../es2017/array-first');
+const {ipush} = require('../../../../es2017/array/first');
 
-describe('es2017/array-first/ipush', () => {
+describe('es2017/array/first/ipush', () => {
 
     let array;
     let item;
@@ -25,7 +25,9 @@ describe('es2017/array-first/ipush', () => {
     });
 
     it('generates new array with the given item appended at the end', () => {
-        expect(ipush(array, item)).toEqual([1, 2, 3, 4]);
+        const actual = ipush(array, item);
+        expect(actual).toEqual([1, 2, 3, 4]);
+        expect(actual).not.toBe(array);
     });
 
 });

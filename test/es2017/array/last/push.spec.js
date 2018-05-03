@@ -1,6 +1,6 @@
-const {push} = require('../../../es2017/array-first');
+const {push} = require('../../../../es2017/array/last');
 
-describe('es2017/array-first/push', () => {
+describe('es2017/array/last/push', () => {
 
     let array;
     let item;
@@ -20,8 +20,12 @@ describe('es2017/array-first/push', () => {
     });
 
     it('adds an item at the end of the array', () => {
-        push(array, item);
+        push(item, array);
         expect(array).toEqual([1, 2, 3, 4]);
+    });
+
+    it('returns the same array', () => {
+        expect(push(item, array)).toBe(array);
     });
 
 });
