@@ -11,6 +11,15 @@ const {
 } = require('./static-methods');
 
 
+const PRIMITIVE_TYPES = [
+    'undefined',
+    'string',
+    'boolean',
+    'number',
+    'symbol',
+]; // null is also, but typeof... SMH
+
+
 const isnil = (
     value => null === value || void 0 === value
 );
@@ -28,6 +37,19 @@ const isstr = (
 );
 
 
+const ispmt = (
+    value => null === value || PRIMITIVE_TYPES.includes(typeof value)
+);
+
+const isobj = (
+    value => !ispmt(value)
+);
+
+const ispoo = ( // is Plain Old Object
+    value => !ispmt(value) && !isfun(value) && !isarr(value)
+);
+
+
 module.exports = Object.freeze({
 
     isnil,
@@ -41,5 +63,9 @@ module.exports = Object.freeze({
     isfin,
     issaf,
     isnan,
+
+    ispmt,
+    ispoo,
+    isobj,
 
 });
