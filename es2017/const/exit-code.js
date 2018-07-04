@@ -1,25 +1,26 @@
 /* eslint-disable no-magic-numbers */
 
-const {SIGHUP, SIGINT, SIGKILL, SIGTERM} = require('./kill-signal');
+const KILL = require('./kill-signal');
 
-const SIGNALS_BASE = 128;
+const signalsBase = 128;
 
 module.exports = Object.freeze({
 
 
-    XCODE_SUCCESS:            0,
-    XCODE_GENERIC_ERROR:      1,
-    XCODE_SHELL_MISUSE:       2,
-    XCODE_CANT_EXECUTE:       126,
-    XCODE_CMD_NOT_FOUND:      127,
-    XCODE_INVALID_EXIT_ARG:   128,
-    XCODE_OUT_OF_RANGE_XCODE: 255,
+    success:         0,
+    genericError:    1,
+    shellMisuse:     2,
+    cantExecute:     126,
+    cmdNotFound:     127,
+    invalidExitArg:  128,
+    outOfRangeXcode: 255,
 
+    signalsBase,
 
-    XCODE_FATAL_ERROR_SIGHUP:  SIGNALS_BASE + SIGHUP,
-    XCODE_FATAL_ERROR_SIGINT:  SIGNALS_BASE + SIGINT,
-    XCODE_FATAL_ERROR_SIGKILL: SIGNALS_BASE + SIGKILL,
-    XCODE_FATAL_ERROR_SIGTERM: SIGNALS_BASE + SIGTERM,
+    fatalErrorSighup:  signalsBase + KILL.sighup,
+    fatalErrorSigint:  signalsBase + KILL.sigint,
+    fatalErrorSigkill: signalsBase + KILL.sigkill,
+    fatalErrorSigterm: signalsBase + KILL.sigterm,
 
 
 });
