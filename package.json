@@ -1,6 +1,6 @@
 {
     "name": "@azhder/commonist",
-    "version": "0.0.19",
+    "version": "0.0.20",
     "description": "commonly used stuff",
     "main": "index.js",
     "scripts": {
@@ -8,8 +8,8 @@
         "jest": "./node_modules/.bin/jest --watch",
         "jest-coverage": "./node_modules/.bin/jest --coverage",
         "jest-coverage-on": "./node_modules/.bin/nodemon --exec npm run jest-coverage",
-        "eslint": "./node_modules/.bin/eslint es2017",
-        "eslint-fix": "./node_modules/.bin/eslint --fix es2017",
+        "eslint": "./node_modules/.bin/eslint cjs",
+        "eslint-fix": "./node_modules/.bin/eslint --fix cjs",
         "eslint-fix-on": "./node_modules/.bin/nodemon --exec npm run eslint-fix"
     },
     "author": "azder <azhder@gmail.com>",
