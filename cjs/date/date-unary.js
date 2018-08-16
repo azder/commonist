@@ -1,9 +1,13 @@
+// iso  is String
+// unix is Number
+// date is Date
+
 const iso2date = (
-    timestamp => new Date(timestamp)
+    iso => new Date(iso)
 );
 
 const unix2date = (
-    unixtime => new Date(unixtime)
+    unix => new Date(unix)
 );
 
 
@@ -17,11 +21,11 @@ const date2unix = (
 
 
 const iso2unix = (
-    timestamp => date2unix(iso2date(timestamp))
+    iso => date2unix(iso2date(iso))
 );
 
 const unix2iso = (
-    unixtime => date2iso(unix2date(unixtime))
+    unix => date2iso(unix2date(unix))
 );
 
 
