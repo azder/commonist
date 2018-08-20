@@ -2,8 +2,6 @@ const {enumSym} = require('../../../cjs/enums');
 
 describe('cjs/enums/enumSym', () => {
 
-    const ITER = Symbol.iterator;
-
     let arr;
     let obj;
 
@@ -72,6 +70,17 @@ describe('cjs/enums/enumSym', () => {
         expect(Object.keys(o)).toEqual(['three', 'four', 'one', 'two']);
 
     });
+
+    it('can be used in for-of', () => {
+
+        const a = enumSym(['one', 'two', 'one', 'two']);
+        const o = enumSym({three: 'one', four: 'two', one: null, two: void 0});
+
+
+
+    });
+
+
 
 
 });
